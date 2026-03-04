@@ -12,7 +12,7 @@ body {
   position: fixed;
   inset: 0;
 
-  background-image: url("./Reception.webp");
+  background-image: url("./assets/Reception.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -47,7 +47,7 @@ body {
   position: fixed;
   inset: 0;
 
-  background-image: url("./menu/corridor.webp");
+  background-image: url("./assets/team/menu/corridor.webp");
   background-size: cover;
   background-position: center;
   /* background-repeat: no-repeat; */
@@ -70,60 +70,60 @@ body {
 
 /* LADIES */
 .page-menu.ladies::before {
-  background-image: url("./menu/femalereception.webp");
+  background-image: url("./assets/team/menu/femalereception.webp");
 }
 
 .page-menu.ladies-massage::before {
-  background-image: url("./menu/corridor.webp");
+  background-image: url("./assets/team/menu/corridor.webp");
 }
 
 .page-menu.ladies-facial::before {
-  background-image: url("./menu/Treatment2.webp");
+  background-image: url("./assets/team/menu/Treatment2.webp");
 }
 
 .page-menu.ladies-body::before {
-  background-image: url("./menu/tresament2.webp");
+  background-image: url("./assets/team/menu/tresament2.webp");
 }
 
 .page-menu.ladies-technologies::before {
-  background-image: url("./menu/Technology.webp");
+  background-image: url("./assets/team/menu/Technology.webp");
 }
 
 .page-menu.ladies-hairsalon::before {
-  background-image: url("./menu/needtochange.png");
+  background-image: url("./assets/team/menu/needtochange.png");
 }
 
 .page-menu.ladies-nail::before {
-  background-image: url("./menu/Nail.webp");
+  background-image: url("./assets/team/menu/Nail.webp");
 }
 
 /* GENTLEMEN */
 .page-menu.gentlemen::before {
-  background-image: url("./menu/needtochange.png");
+  background-image: url("./assets/team/menu/needtochange.png");
 }
 
 .page-menu.gentlemen-massage::before {
-  background-image: url("./menu/corridor.webp");
+  background-image: url("./assets/team/menu/corridor.webp");
 }
 
 .page-menu.gentlemen-facial::before {
-  background-image: url("./menu/Treatment2.webp");
+  background-image: url("./assets/team/menu/Treatment2.webp");
 }
 
 .page-menu.gentlemen-body::before {
-  background-image: url("./menu/tresament2.webp");
+  background-image: url("./assets/team/menu/tresament2.webp");
 }
 
 .page-menu.gentlemen-technologies::before {
-  background-image: url("./menu/Technology.webp");
+  background-image: url("./assets/team/menu/Technology.webp");
 }
 
 .page-menu.gentlemen-barber::before {
-  background-image: url("./menu/needtochange.png");
+  background-image: url("./assets/team/menu/needtochange.png");
 }
 
 .page-menu.gentlemen-nail::before {
-  background-image: url("./menu/needtochange.png");
+  background-image: url("./assets/team/menu/needtochange.png");
 }
 
 
@@ -146,7 +146,7 @@ body {
   position: fixed;
   inset: 0;
 
-  background-image: url("./menu/Treatment2.webp");
+  background-image: url("./assets/team/menu/Treatment2.webp");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -176,26 +176,240 @@ body {
 
 
 
-/* employee background */
-.page-team::before {
-  content: "";
+/* Team start */
+/* FILTER BUTTONS */
+
+/* .filter-btn {
+  padding: 10px 25px;
+  margin: 5px;
+  border-radius: 30px;
+  border: 1px solid #c5a47e;
+  background: transparent;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #c5a47e;
+  color: #000;
+} */
+
+
+/* TEAM LIST */
+
+.team-list {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Small list layout */
+
+.team-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.team-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Modal */
+
+.team-modal {
+  display: none;
   position: fixed;
   inset: 0;
-
-  background-image: url("./team/Team/all.webp");
-  background-size: contain;
-  background-position: center;
-  /* background-repeat: no-repeat; */
-
-  filter: blur(15px);
-  /* 🔥 BLUR DƏRƏCƏSİ – buranı dəyiş */
-  transform: scale(1.1);
-  /*blur kenarlarini gizladir*/
-  opacity: 0.75;
-  /* 🔥 ŞƏKİL GÜCÜ – buranı dəyiş */
-
-  z-index: -2;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
 }
+
+.modal-content-box {
+  background: #0b1c2d;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content-box img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #d4af37;
+}
+
+/* .page-team::before {
+  content: "";
+  position: fixed;
+  inset: 0; */
+
+/* background-image: url("./assets/team/Team/all.webp"); */
+/* background-size: cover; */
+/* background-position: center; */
+/* background-repeat: no-repeat; */
+
+/* filter: blur(15px); */
+/* 🔥 BLUR DƏRƏCƏSİ – buranı dəyiş */
+/* transform: scale(1.1); */
+/*blur kenarlarini gizladir*/
+/* opacity: 0.75; */
+/* 🔥 ŞƏKİL GÜCÜ – buranı dəyiş */
+
+/* z-index: -2; */
+/* } */
+
+/* BURDANNNNNNNNNNNNNNNNNNNNNN */
+/* .team-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team-card:hover {
+  background: rgba(197, 164, 126, 0.2);
+} */
+
+.team-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  object-position: top center;
+  /* 👈 ƏN VACİB */
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* silinacaq sheylar */
+
+.page-team {
+  background: linear-gradient(rgba(95, 74, 68, 0.966), rgba(25, 11, 5, 0.95)),
+    url('./assets/team/Team/all.webp') center/cover no-repeat fixed;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.filter-btn {
+  padding: 12px 30px;
+  margin: 8px;
+  border-radius: 50px;
+  border: 1px solid #c5a47e;
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+
+.filter-btn:hover {
+  background: #c5a47e;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(197, 164, 126, 0.4);
+}
+
+.filter-btn.active {
+  background: #c5a47e;
+  color: #000;
+}
+
+.team-card {
+
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+
+.team-card:hover {
+  background: rgba(197, 164, 126, 0.2);
+  transform: scale(1.03);
+}
+
+.label {
+  color: #c5a47e;
+  /* gold luxury */
+  font-weight: 600;
+}
+
+.value {
+  color: #e6e6e6;
+  margin-left: 8px;
+}
+
+.modal-body p {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.luxury-modal {
+  background: linear-gradient(145deg, #0f1c2a, #13293d);
+  border-radius: 20px;
+  border: 1px solid rgba(197, 164, 126, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+#modalImg {
+  border-radius: 20px;
+  border: 2px solid #c5a47e;
+}
+
+.modal.fade .modal-dialog {
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
+
+
+
+
+
+
 
 /* .page-landing::after {
   content: "";
@@ -208,7 +422,66 @@ body {
 /* employeeFemale background */
 /* employeeMale background */
 
+/* female employee list */
+/* Kart ümumi stil */
+/* .team-card {
+  background-color: #0f2438;
+  border-radius: 15px;
+  padding: 12px;
+  box-shadow: 0 2px 6px #C49B6F;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+} */
 
+/* Hover effekti */
+/* .team-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px #C49B6F;
+} */
+
+/* Şəkil */
+/* .team-card img {
+  width: 100%;
+  height: 180px; */
+/* object-fit: contain; */
+/* şəkil kəsilmir */
+/* border-radius: 50px; */
+/* margin-bottom: 10px; */
+/* background: #0f2438; */
+/* fon ilə uyğunluq */
+/* padding: 5px; */
+/* } */
+
+/* Button */
+/* .team-btn {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #C49B6F;
+  background: #C49B6F;
+  color: #0f2438;
+  transition: all 0.3s ease;
+}
+
+.team-btn:hover {
+  background: #0f2438;
+  color: #C49B6F;
+  border-color: #C49B6F;
+} */
+
+/* bura kimi ranglar tamam */
+/* Collapse info */
+/* .team-info {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: left;
+  border-left: 3px solid#C49B6F;
+  border-radius: 6px;
+  background-color: #0f2438;
+  box-shadow: 0 1px 4px #C49B6F;
+  animation: fadeIn 0.25s ease;
+} */
 
 
 .container {
@@ -323,7 +596,7 @@ button.active {
 
 /* NAVBAR BASE */
 .custom-navbar {
-  /* background-color: #38260f; */
+  background-color: #0f2438;
   /* dark navy */
   padding: 14px 24px;
 }
@@ -417,66 +690,7 @@ button.active {
   transform: scale(1.1);
 }
 
-/* female employee list */
-/* Kart ümumi stil */
-.team-card {
-  background-color: #0f2438;
-  border-radius: 15px;
-  padding: 12px;
-  box-shadow: 0 2px 6px #C49B6F;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-}
 
-/* Hover effekti */
-.team-card:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 12px #C49B6F;
-}
-
-/* Şəkil */
-.team-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: contain;
-  /* şəkil kəsilmir */
-  border-radius: 50px;
-  margin-bottom: 10px;
-  background: #0f2438;
-  /* fon ilə uyğunluq */
-  padding: 5px;
-}
-
-/* Button */
-.team-btn {
-  width: 100%;
-  padding: 8px;
-  font-size: 14px;
-  border-radius: 8px;
-  border: 1px solid #C49B6F;
-  background: #C49B6F;
-  color: #0f2438;
-  transition: all 0.3s ease;
-}
-
-.team-btn:hover {
-  background: #0f2438;
-  color: #C49B6F;
-  border-color: #C49B6F;
-}
-
-/* bura kimi ranglar tamam */
-/* Collapse info */
-.team-info {
-  margin-top: 10px;
-  padding: 10px;
-  font-size: 14px;
-  text-align: left;
-  border-left: 3px solid#C49B6F;
-  border-radius: 6px;
-  background-color: #0f2438;
-  box-shadow: 0 1px 4px #C49B6F;
-  animation: fadeIn 0.25s ease;
-}
 
 /* Fade-in animasiya */
 @keyframes fadeIn {
@@ -494,7 +708,7 @@ button.active {
 
 .hero-section {
   min-height: 70vh;
-  background: url("./CoreWellness.png") no-repeat center;
+  background: url("./assets/CoreWellness.png") no-repeat center;
   background-size: 400px;
   /* logonun ölçüsü */
   /* background-color: #0f2438; */
@@ -776,7 +990,7 @@ button.active {
 }
 
 .wellness-modal {
-  background-image: url("./design.png");
+  background-image: url("./assets/design.png");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -880,4 +1094,39 @@ button.active {
 .spa-package-table tbody tr:hover td {
   background: transparent;
   justify-content: space-between;
+}
+
+/* whatsapp */
+.whatsapp-link {
+  color: #d4b17a;
+  /* sənin hazırki qızılı rəng */
+  transition: 0.3s ease;
+}
+
+.whatsapp-link i {
+  color: #25D366;
+  margin-right: 6px;
+  transition: 0.3s ease;
+}
+
+.whatsapp-link:hover i {
+  text-shadow:
+    0 0 5px #25D366,
+    0 0 10px #25D366,
+    0 0 20px #25D366;
+}
+
+.whatsapp-link i {
+  color: #25D366;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #25D366;
+  }
+
+  to {
+    text-shadow: 0 0 20px #25D366;
+  }
 }

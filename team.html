@@ -9,7 +9,7 @@
     integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="icon" href="./CoreWellness.png" type="image/png">
+  <link rel="icon" href="./assets/CoreWellness.png" type="image/png">
 </head>
 
 <body class="page-team">
@@ -17,8 +17,8 @@
     <div class="container-fluid">
 
       <!-- LOGO (LEFT) -->
-      <a class="navbar-brand d-flex align-items-center" href="./coreWellnessLanding.html">
-        <img src="./CoreWellness.png" alt="Logo" width="100" height="50" class="me-2">
+      <a class="navbar-brand d-flex align-items-center" href="./index.html">
+        <img src="./assets/CoreWellness.png" alt="Logo" width="100" height="50" class="me-2">
       </a>
 
       <!-- MENU (RIGHT) -->
@@ -38,33 +38,56 @@
             Team
           </a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link whatsapp-link" href="https://wa.me/966559937803" target="_blank">
+            <i class="fab fa-whatsapp"></i> Contact us
+          </a>
+        </li>
       </ul>
-
     </div>
   </nav>
 
-  <div class="row justify-content-center gap-4">
+  <div class="container mt-5">
 
-    <div class="col-md-4 d-flex justify-content-center">
-      <a href="femaleTeam.html" class="d-block w-100 text-decoration-none text-dark">
-        <div class="card gender-card d-flex flex-column align-items-center justify-content-center text-center"
-          style="height: 200px; cursor: pointer;">
-          <i class="fa-solid fa-spa bali-icon mb-3"></i>
-          <h2>Female</h2>
-        </div>
-      </a>
+    <!-- FILTER BUTTONS -->
+    <div class="text-center mb-4">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="female">Female</button>
+      <button class="filter-btn" data-filter="male">Male</button>
     </div>
 
-    <div class="col-md-4 d-flex justify-content-center">
-      <a href="maleTeam.html" class="d-block w-100 text-decoration-none text-dark">
-        <div class="card gender-card d-flex flex-column align-items-center justify-content-center text-center"
-          style="height: 200px; cursor: pointer;">
-          <i class="fa-solid fa-leaf bali-icon mb-3"></i>
-          <h2>Male</h2>
-        </div>
-      </a>
-    </div>
+    <!-- TEAM LIST -->
+    <div class="row" id="teamContainer"></div>
 
+  </div>
+
+  <!-- TEAM MODAL -->
+  <div class="modal fade" id="teamModal" tabindex="-1">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+      <!-- <div class="modal-content bg-dark text-white"> -->
+      <div class="modal-content luxury-modal text-white">
+
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body text-center">
+
+          <img id="modalImg" class="img-fluid rounded mb-4" style="max-height:300px;">
+
+          <div class="text-start">
+            <p><span class="label">Name:</span> <span class="value" id="modalName"></span></p>
+            <p><span class="label">Nationality:</span> <span class="value" id="modalNationality"></span></p>
+            <p><span class="label">Role:</span> <span class="value" id="modalRole"></span></p>
+            <p><span class="label">Specializations:</span> <span class="value" id="modalSpec"></span></p>
+            <p><span class="label">Qualification:</span> <span class="value" id="modalQual"></span></p>
+            <p><span class="label">Summary:</span> <span class="value" id="modalSummary"></span></p>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
