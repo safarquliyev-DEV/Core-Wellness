@@ -1489,7 +1489,52 @@ const data = {
       },
     ],
   },
-  // spaEtiquette: 
+  spaEtiquette: `
+  <h2>ARRIVALS</h2>
+  <ul>
+    <li>Please arrive at the Spa Reception 10 minutes before your scheduled treatment time and ensure you have completed the
+consultation form provided. Your therapist will meet you in the Spa Reception and take you through to the treatment room.</li>
+    <li>To accommodate all our guests , each treatment will conclude at the scheduled time, regardless of start time.</li>
+    <li> For your convenience, the spa will provide towels, slippers, shower caps and all amenities you may need to enjoy your visit.</li>
+    <li>Swimsuits are required in some areas of the spa.</li>
+    <li>Jewellery and valuables should be left in your designated locker. CORE Life and Spa do not assume liability for any
+valuables.</li>
+    <li>The spa and wellness environment is one of tranquility and relaxation. Please respect the quiet and privacy of other guests. We
+kindly request that you refrain from smoking and using mobile phones and cameras.</li>
+  </ul>
+
+  <h2>BOOKINGS</h2>
+  <p>Advanced 24 hour’s booking is highly recommended for preferred times and services. The Spa provides walk-in bookings based on
+availability</p>
+
+  <h2>LATENESS AND CANCELLATION POLICY</h2>
+  <p>Please be aware that your late arrival may result in a reduction of treatment time as a courtesy to our next guest. We kindly ask you
+to give a minimum of 12 hours notice for cancellations. Less than twelve hours’ notice will result in a charge of the full price.</p>
+
+  <h2>HEALTH CONSIDERATIONS</h2>
+  <p>Please advise us of any health conditions, allergies or injuries that could affect your experience or use of the spa facilities. For first
+time visitors you’ll be asked to complete a consultation form prior or upon arrival at the Spa Reception. This will allow your wellness
+professional to offer a better, customized experience to meet your needs.</p>
+
+  <h2>MINIMUM AGE</h2>
+  <ul>
+    <li>Only persons aged 18 years and above are to be granted access to the Vitality Area and Spa Services. </li>
+    <li>Minors may access the Hair Salon, Barber, and Nail services. Under 12 years, must be accompanied by an adult.</li>
+  </ul>
+
+<h2>OPERATION HOURS</h2>
+  <ul>
+    <li>Weekends: 12 PM to 9 PM</li>
+    <li>Weekdays: 11 AM to 10 PM</li>
+  </ul>
+
+  <h2>WELLNESS CONSULTATION</h2>
+  <p>CORE Wellness also provides direct wellness consulting, available prior to reservation to customize your treatment selection based
+on your specific needs.</p>
+
+<h2>CONTACT DETAILS</h2>
+  <p>To reserve and book a session or treatment at CORE Spa please contact Guest Relations on +966 55 993 7803.</p>
+  `
 };
 
 
@@ -1497,12 +1542,7 @@ const data = {
 let currentGender = 'ladies';
 let currentCategory = '';
 
-function setGender(gender, btn) {
-  currentGender = gender;
-  document.querySelectorAll('.gender-switch button').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  buildTabs();
-}
+
 function toSlug(text) {
   return text.toLowerCase().replace(/\s+/g, '-');
 }
@@ -1523,7 +1563,19 @@ function updateBackground() {
 
 function buildTabs() {
   const tabs = document.getElementById('categoryTabs');
+  const cards = document.getElementById('cards');
+
   tabs.innerHTML = '';
+  cards.innerHTML = '';
+
+  if (currentGender === 'spaEtiquette') {
+    cards.innerHTML = `
+  <div class="etiquette-wrapper" id="etiquetteSection">
+    ${data.spaEtiquette}
+  </div>
+`;
+    return;
+  }
 
   const categories = Object.keys(data[currentGender]);
   currentCategory = '';
@@ -1658,7 +1710,7 @@ function closeModal() {
 
 function setGender(gender, btn) {
   currentGender = gender;
-  currentCategory = ''; // <<< ƏLAVƏ ET
+  currentCategory = '';
 
   document.querySelectorAll('.gender-switch button')
     .forEach(b => b.classList.remove('active'));
@@ -1666,10 +1718,17 @@ function setGender(gender, btn) {
   btn.classList.add('active');
 
   buildTabs();
-
-  document.getElementById('cards').innerHTML = ''; // cards boş qalır
-
   updateBackground();
+
+  // 👇 SPA ETIQUETTE üçün scroll
+  if (gender === 'spaEtiquette') {
+    setTimeout(() => {
+      const el = document.getElementById('etiquetteSection');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 200);
+  }
 }
 
 function preloadImages() {

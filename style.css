@@ -1,3 +1,8 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
@@ -5,6 +10,8 @@ body {
   /* position: relative; */
   /* overflow-x: hidden; */
 }
+
+
 
 /* landing background */
 .page-landing::before {
@@ -126,6 +133,53 @@ body {
   background-image: url("./assets/team/menu/needtochange.png");
 }
 
+.page-menu.spa-etiquette {
+  background: url("./assets/team/etiquette.webp") center/cover no-repeat fixed;
+}
+
+.etiquette-wrapper {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #0f2438;
+  color: #fff;
+  border-radius: 20px;
+  line-height: 1.8;
+}
+
+.etiquette-wrapper h2 {
+  margin-top: 30px;
+  color: #C49B6F;
+}
+
+.etiquette-wrapper ul {
+  padding-left: 20px;
+}
+
+.etiquette-wrapper li {
+  margin-bottom: 10px;
+}
+
+/* scroll burdan bashdiyir */
+.etiquette-wrapper {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+
+.etiquette-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.etiquette-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.etiquette-wrapper::-webkit-scrollbar-thumb {
+  background: #C49B6F;
+  border-radius: 10px;
+}
 
 .page-menu {
   background: #0f2438;
@@ -261,6 +315,46 @@ body {
   cursor: pointer;
   color: #d4af37;
 }
+
+/* burdan silersan modul team */
+#teamModal .modal-body {
+  max-height: 75vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Premium scroll style */
+#teamModal .modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+#teamModal .modal-body::-webkit-scrollbar-thumb {
+  background: #c8a96a;
+  border-radius: 10px;
+}
+
+/* TEAM MODAL FIXED SCROLL */
+
+#teamModal .modal-dialog {
+  max-width: 900px;
+}
+
+#teamModal .modal-content {
+  max-height: 85vh;
+  overflow: hidden;
+  /* 🔥 əsas budur */
+  border-radius: 20px;
+}
+
+#teamModal .modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+
+
+
 
 /* .page-team::before {
   content: "";
@@ -1128,5 +1222,23 @@ button.active {
 
   to {
     text-shadow: 0 0 20px #25D366;
+  }
+}
+
+
+.navbar-toggler {
+  border-color: #C49B6F;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(196,155,111,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #0f2438;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 10px;
   }
 }
