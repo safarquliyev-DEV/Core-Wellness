@@ -1608,68 +1608,50 @@ function buildCards() {
     const card = document.createElement('div');
     card.className = 'card';
 
-    let priceHTML = '';
-    if (item.durations && item.durations.length > 0) {
-      priceHTML += `<div class="price-box">`;
-      item.durations.forEach(d => {
-        priceHTML += `
-          <div class="price-row">
-            <span>${d.time}</span>
-            <strong>${d.price}</strong>
-          </div>
-        `;
-      });
-      priceHTML += `</div>`;
-    }
+    const hasShort = item.short && item.short.trim() !== '';
+    const hasFull = item.full && item.full.trim() !== '';
 
     card.innerHTML = `
-  <div class="card-header header-row">
-    <strong class="card-title">${item.title}</strong>
-
-    ${item.durations && item.durations.length
+      <div class="card-header header-row">
+        <strong class="card-title">${item.title}</strong>
+        ${item.durations && item.durations.length
         ? `<span class="header-price">
-            ${item.durations.map(d => d.time + ' – ' + d.price).join(' | ')}
-          </span>`
+              ${item.durations.map(d => d.time + ' – ' + d.price).join(' | ')}
+            </span>`
         : ''
       }
-  </div>
-
-  <div class="card-body short">
-  <div class="short-text">${item.short || ''}</div>
-  <button class="view-btn">View details</button>
-</div>
-
-  <div class="card-body full">
-    ${item.full}
-  </div>
-`;
-
+      </div>
+      ${hasShort || hasFull ? `
+        <div class="card-body short">
+          ${hasShort ? `<div class="short-text">${item.short}</div>` : ''}
+          ${hasFull ? '<button class="view-btn">View details</button>' : ''}
+        </div>
+      ` : ''}
+      ${hasFull ? `<div class="card-body full">${item.full}</div>` : ''}
+    `;
 
     const header = card.querySelector('.card-header');
     const shortBody = card.querySelector('.short');
     const fullBody = card.querySelector('.full');
     const viewBtn = card.querySelector('.view-btn');
 
-    // TITLE → short 
     header.onclick = () => {
-
-      // Əgər FULL açıqdırsa → hamısını bağla
-      if (fullBody.classList.contains('open')) {
+      if (!shortBody) return;
+      if (fullBody && fullBody.classList.contains('open')) {
         fullBody.classList.remove('open');
         shortBody.classList.remove('open');
         return;
       }
-
-      // Əks halda → short toggle
       shortBody.classList.toggle('open');
     };
 
-    // VIEW DETAILS → short bağla, full aç
-    viewBtn.onclick = (e) => {
-      e.stopPropagation();
-      shortBody.classList.remove('open');
-      fullBody.classList.toggle('open');
-    };
+    if (viewBtn) {
+      viewBtn.onclick = (e) => {
+        e.stopPropagation();
+        shortBody.classList.remove('open');
+        fullBody.classList.toggle('open');
+      };
+    }
 
     wrap.appendChild(card);
     setTimeout(() => card.classList.add('show'), i * 80);
