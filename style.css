@@ -1248,6 +1248,54 @@ button.active {
   justify-content: space-between;
 }
 
+@media (max-width: 600px) {
+
+  /* Wellness Plus başlığı kiçilsin */
+  .main-core .core-pack .core-desc {
+    font-size: 1.8rem;
+  }
+
+  /* Cədvəl mobil üçün */
+  .spa-package-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .spa-package-table {
+    min-width: unset;
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .spa-package-table thead th,
+  .spa-package-table tbody td {
+    padding: 8px 10px;
+  }
+
+  /* Packages modal padding azalt */
+  .wellness-modal .modal-body {
+    padding: 12px;
+  }
+
+  /* $ işarəsi problemi */
+  .spa-package-table small {
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 /* whatsapp */
 .whatsapp-link {
   color: #d4b17a;

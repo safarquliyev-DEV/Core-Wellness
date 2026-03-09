@@ -18,7 +18,10 @@ const teamData = [
     //     "Body Scrubs and Wraps (e.g., hydrotherapy, signature rituals)",
     //     "Personalized Consultation",
     //   ],
-    qualification: "lorem",
+    qualification: [
+      "Bachelor’s degree in Hotel and Restaurant Management, Philippines",
+      "Award as Best Face Remodeling for the Seminar of Biologic Recherche last 2023 located in Four Season and Champion of The Month of March 2025",
+    ],
     summary: "I was born in Philippines. As a Senior Spa Therapist with over 9 years of experience in luxury spa environments, I provide a transformative and deeply restorative experience for every guest. My passion lies in creating bespoke treatment plans that address individual needs, promoting physical relaxation and mental clarity. I specialize in a wide range of advanced therapies, including advanced techniques, hot stone massage therapy, advanced facials, signature body rituals and stay at the forefront of industry innovations. I believe a truly exceptional spa experience is built on a foundation of presence, expertise, and personalized care. For me, this means taking the time to conduct a detailed pre-treatment consultation and integrating mindful techniques to ensure each session is intentional and deeply beneficial. I am committed to upholding the highest standards of safety, hygiene, and discretion to make your time with me a sanctuary of excellence."
   },
   {
