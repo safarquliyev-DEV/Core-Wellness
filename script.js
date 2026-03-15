@@ -970,14 +970,14 @@ const data = {
         short: "Focus: Regeneration, Appearance",
         full: "A restorative massage performed with smooth, warmed mineralized stones. You will achieve deep muscle relaxation through the placement of soothing, heated aromatic stones along pressure points on the body, whilst your therapist performs muscle manipulations that will melt away all tension and stress."
       },
-      {
-        title: "Pregnancy Massage",
-        durations: [
-          { time: "60 minutes", price: "750 SAR" },
-        ],
-        short: "Focus: Regeneration",
-        full: "Enjoy a customized prenatal massage to help alleviate aches and pains associated with being pregnant. It aims to release tense muscles, ease sore spots, reduce swelling, and improve your circulation and mobility. After this massage, you will feel comfortable and have a sense of mental and physical relaxation."
-      },
+      // {
+      //   title: "Pregnancy Massage",
+      //   durations: [
+      //     { time: "60 minutes", price: "750 SAR" },
+      //   ],
+      //   short: "Focus: Regeneration",
+      //   full: "Enjoy a customized prenatal massage to help alleviate aches and pains associated with being pregnant. It aims to release tense muscles, ease sore spots, reduce swelling, and improve your circulation and mobility. After this massage, you will feel comfortable and have a sense of mental and physical relaxation."
+      // },
       {
         title: "Reflexology",
         durations: [

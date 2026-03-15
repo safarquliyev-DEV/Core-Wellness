@@ -674,11 +674,14 @@ body {
 } */
 
 .team-img {
-  width: 70px;
-  height: 70px;
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
+  /* ← genişlik sabit qalsın */
+  min-height: 65px;
+  /* ← hündürlük sabit qalsın */
   object-fit: cover;
   object-position: top center;
-  /* 👈 ƏN VACİB */
   border-radius: 50%;
   margin-right: 15px;
 }
@@ -766,10 +769,7 @@ body {
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
 }
 
-#modalImg {
-  border-radius: 20px;
-  border: 2px solid #c5a47e;
-}
+
 
 .modal.fade .modal-dialog {
   transform: scale(0.8);
