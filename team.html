@@ -16,7 +16,7 @@
   <style>
     /* ===== TEAM MODAL – PROFILE CARD STYLE ===== */
     #teamModal .modal-dialog {
-      max-width: 500px;
+      max-width: 440px;
     }
 
     #teamModal .modal-content {
@@ -25,64 +25,88 @@
       box-shadow: none;
     }
 
-    /* THE CARD */
+    /* THE CARD — fixed height, flex column */
     .profile-card {
       position: relative;
-      border-radius: 6px;
+      border-radius: 10px;
       overflow: hidden;
       box-shadow: 0 40px 80px rgba(0, 0, 0, 0.85);
-      min-height: 640px;
+      height: 90vh;
+      max-height: 700px;
+      display: flex;
+      flex-direction: column;
     }
 
-    /* BG PHOTO LAYER */
-    .profile-bg-photo {
+    /* ── BACKGROUND LAYERS ── */
+    .profile-bg-base {
       position: absolute;
       inset: 0;
-      background: url('./assets/team/menu/Treatment2.webp') center/cover no-repeat;
       z-index: 0;
+      transition: background 0.4s ease;
     }
 
-    /* FLAG LAYER */
-    .profile-bg-flag {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-      opacity: 0.2;
-      background-size: cover;
-      background-position: center;
-    }
-
-    /* DARK OVERLAY */
     .profile-bg-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg,
-          rgba(5, 10, 20, 0.4) 0%,
-          rgba(5, 10, 20, 0.55) 35%,
-          rgba(5, 10, 20, 0.92) 65%,
-          rgba(5, 10, 20, 0.99) 100%);
-      z-index: 2;
+          rgba(5, 10, 20, 0.25) 0%,
+          rgba(5, 10, 20, 0.50) 40%,
+          rgba(5, 10, 20, 0.97) 68%,
+          rgba(5, 10, 20, 1.00) 100%);
+      z-index: 1;
     }
 
-    /* CONTENT */
-    .profile-content {
-      position: relative;
-      z-index: 3;
-      display: flex;
-      flex-direction: column;
-      min-height: 640px;
+    /* ── NATIONALITY GRADIENT BACKGROUNDS ── */
+    .bg-philippine {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
     }
 
-    /* CLOSE BUTTON */
+    .bg-russian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-tunisian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-eritrean {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-argentinian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-indonesian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-bangladeshi {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-nepalian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-syrian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-default {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    /* ── CLOSE BUTTON ── */
     .profile-close {
       position: absolute;
-      top: 16px;
-      right: 16px;
+      top: 14px;
+      right: 14px;
       background: rgba(196, 155, 111, 0.15);
       border: 1px solid rgba(196, 155, 111, 0.4);
       color: #C49B6F;
-      width: 32px;
-      height: 32px;
+      width: 30px;
+      height: 30px;
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -90,7 +114,7 @@
       font-size: 16px;
       cursor: pointer;
       transition: 0.3s;
-      z-index: 10;
+      z-index: 20;
     }
 
     .profile-close:hover {
@@ -98,106 +122,134 @@
       color: #0f2438;
     }
 
-    /* TOP: PHOTO FULL WIDTH + NAME OVERLAY */
-    .profile-top {
+    /* ── CORNER ACCENTS ── */
+    .profile-corner-tl {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 20px;
+      height: 20px;
+      border-top: 1.5px solid rgba(196, 155, 111, 0.45);
+      border-left: 1.5px solid rgba(196, 155, 111, 0.45);
+      z-index: 20;
+    }
+
+    .profile-corner-br {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      border-bottom: 1.5px solid rgba(196, 155, 111, 0.45);
+      border-right: 1.5px solid rgba(196, 155, 111, 0.45);
+      z-index: 20;
+    }
+
+    /* ══════════════════════════════════════
+       STICKY TOP: photo + name — never scrolls
+    ══════════════════════════════════════ */
+    .profile-sticky {
       position: relative;
-      width: 100%;
-      height: 340px;
-      overflow: hidden;
-      display: flex;
-      align-items: flex-end;
+      z-index: 5;
+      flex-shrink: 0;
     }
 
-    /* PHOTO — full width, bottom-aligned */
     .profile-photo-wrapper {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      align-items: flex-end;
-      justify-content: center;
+      width: 100%;
+      height: 280px;
       overflow: hidden;
-    }
-
-    .profile-photo-flag {
-      position: absolute;
-      inset: 0;
-      opacity: 0.12;
-      background-size: cover;
-      background-position: center;
-      z-index: 1;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
     }
 
     .profile-photo-wrapper img {
-      position: relative;
-      z-index: 2;
-      height: 100%;
-      width: auto;
-      max-width: 100%;
-      object-fit: contain;
-      object-position: bottom center;
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
       border: none;
       background: transparent;
-      display: block;
-      max-height: 340px;
-      /* ← ƏLAVƏ ET */
-      margin: 0 auto;
-      /* ← ƏLAVƏ ET */
     }
 
-    /* NAME BLOCK — overlaid at bottom-left */
     .profile-name-block {
-      position: relative;
-      z-index: 5;
-      padding: 60px 28px 20px;
-      flex: 1;
-      background: linear-gradient(0deg, rgba(5, 10, 20, 0.85) 0%, transparent 100%);
+      padding: 14px 24px 16px;
+      background: rgba(5, 10, 20, 0.55);
     }
 
     .profile-nationality {
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       font-size: 10px;
       font-weight: 600;
       letter-spacing: 3px;
-      color: rgba(255, 255, 255, 0.55);
+      color: rgba(255, 255, 255, 0.75);
       text-transform: uppercase;
-      margin-bottom: 6px;
+      margin-bottom: 5px;
       font-family: 'Montserrat', sans-serif;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
     }
 
     .profile-flag-emoji {
-      font-size: 14px;
+      font-size: 16px;
     }
 
     .profile-firstname {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 40px;
+      font-size: 38px;
       font-weight: 300;
       color: #fff;
-      line-height: 0.95;
+      line-height: 1;
       letter-spacing: -1px;
     }
 
     .profile-lastname {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 44px;
+      font-size: 42px;
       font-weight: 700;
       color: #C49B6F;
-      line-height: 0.95;
+      line-height: 1;
       letter-spacing: -1px;
     }
 
-    /* DIVIDER */
+    /* ══════════════════════════════════════
+       SCROLLABLE BOTTOM
+    ══════════════════════════════════════ */
+    .profile-scroll {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      overflow-y: auto;
+      background: rgba(5, 10, 20, 0.97);
+      scrollbar-width: thin;
+      scrollbar-color: #C49B6F transparent;
+    }
+
+    .profile-scroll::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .profile-scroll::-webkit-scrollbar-thumb {
+      background: #C49B6F;
+      border-radius: 3px;
+    }
+
+    .profile-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
     .profile-divider {
-      margin: 20px 32px 0;
+      margin: 0 24px;
       height: 1px;
       background: linear-gradient(90deg, #C49B6F, rgba(196, 155, 111, 0.05));
     }
 
-    /* ROLE */
     .profile-role {
-      padding: 14px 32px 0;
+      padding: 14px 24px 0;
     }
 
     .profile-role-title {
@@ -210,38 +262,19 @@
     }
 
     .profile-spec {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.45);
-      letter-spacing: 0.5px;
-      margin-top: 2px;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.3px;
+      margin-top: 3px;
       font-family: 'Montserrat', sans-serif;
+      line-height: 1.5;
     }
 
-    /* SCROLL BODY */
     .profile-body {
-      padding: 16px 32px 0;
-      flex: 1;
-      max-height: 260px;
-      overflow-y: auto;
-      scrollbar-width: thin;
-      scrollbar-color: #C49B6F transparent;
+      padding: 14px 24px 10px;
     }
 
-    .profile-body::-webkit-scrollbar {
-      width: 3px;
-    }
-
-    .profile-body::-webkit-scrollbar-thumb {
-      background: #C49B6F;
-      border-radius: 3px;
-    }
-
-    .profile-body::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    /* QUALIFICATIONS */
     .profile-section-label {
       font-size: 9px;
       font-weight: 700;
@@ -268,7 +301,6 @@
       font-size: 11px;
       font-weight: 400;
       color: rgba(255, 255, 255, 0.7);
-      letter-spacing: 0.2px;
       font-family: 'Montserrat', sans-serif;
       line-height: 1.5;
     }
@@ -282,20 +314,17 @@
       margin-top: 8px;
     }
 
-    /* SUMMARY */
     .profile-summary {
       font-size: 11px;
       font-weight: 300;
-      color: rgba(255, 255, 255, 0.4);
+      color: rgba(255, 255, 255, 0.38);
       line-height: 1.7;
       font-family: 'Montserrat', sans-serif;
       margin-bottom: 16px;
     }
 
-    /* BOTTOM BAR */
     .profile-bottom {
-      margin-top: auto;
-      padding: 14px 32px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -304,91 +333,28 @@
 
     .profile-brand {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 13px;
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.25);
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.22);
       letter-spacing: 3px;
       text-transform: uppercase;
     }
 
     .profile-brand span {
-      color: rgba(196, 155, 111, 0.5);
+      color: rgba(196, 155, 111, 0.45);
     }
 
     .profile-gender-tag {
       font-size: 9px;
       letter-spacing: 2px;
-      color: rgba(255, 255, 255, 0.2);
+      color: rgba(255, 255, 255, 0.18);
       text-transform: uppercase;
       font-family: 'Montserrat', sans-serif;
     }
 
-    /* CORNER ACCENTS */
-    .profile-corner-tl {
-      position: absolute;
-      top: 14px;
-      left: 14px;
-      width: 22px;
-      height: 22px;
-      border-top: 1.5px solid rgba(196, 155, 111, 0.4);
-      border-left: 1.5px solid rgba(196, 155, 111, 0.4);
-      z-index: 4;
-    }
-
-    .profile-corner-br {
-      position: absolute;
-      bottom: 14px;
-      right: 14px;
-      width: 22px;
-      height: 22px;
-      border-bottom: 1.5px solid rgba(196, 155, 111, 0.4);
-      border-right: 1.5px solid rgba(196, 155, 111, 0.4);
-      z-index: 4;
-    }
-
-    /* NATIONALITY → FLAG GRADIENT MAP */
-    .flag-philippine {
-      background: linear-gradient(180deg, #0038A8 50%, #CE1126 50%);
-    }
-
-    .flag-russian {
-      background: linear-gradient(180deg, #fff 33%, #0039A6 33% 66%, #D52B1E 66%);
-    }
-
-    .flag-tunisian {
-      background: #E70013;
-    }
-
-    .flag-eritrean {
-      background: linear-gradient(135deg, #4189DD 33%, #4FAE47 33% 66%, #E32118 66%);
-    }
-
-    .flag-argentinian {
-      background: linear-gradient(180deg, #74ACDF 33%, #fff 33% 66%, #74ACDF 66%);
-    }
-
-    .flag-indonesian {
-      background: linear-gradient(180deg, #CE1126 50%, #fff 50%);
-    }
-
-    .flag-bangladeshi {
-      background: #006A4E;
-    }
-
-    .flag-nepalian {
-      background: #003893;
-    }
-
-    .flag-syrian {
-      background: linear-gradient(180deg, #CE1126 33%, #fff 33% 66%, #000 66%);
-    }
-
-    /* NATIONALITY EMOJI MAP */
-
     /* Modal animation */
     #teamModal .modal-dialog {
-      transform: scale(0.85);
-      transition: transform 0.4s ease;
+      transform: scale(0.88);
+      transition: transform 0.35s ease;
     }
 
     #teamModal.show .modal-dialog {
@@ -397,43 +363,26 @@
 
     @media (max-width: 576px) {
       #teamModal .modal-dialog {
-        margin: 10px;
-        max-width: calc(100vw - 20px);
+        margin: 8px;
+        max-width: calc(100vw - 16px);
       }
 
-      .profile-top {
-        min-height: 180px;
-        padding: 32px 22px 0;
+      .profile-card {
+        height: 92vh;
+        max-height: none;
+      }
+
+      .profile-photo-wrapper,
+      .profile-photo-wrapper img {
+        height: 240px;
       }
 
       .profile-firstname {
-        font-size: 32px;
+        font-size: 30px;
       }
 
       .profile-lastname {
-        font-size: 36px;
-      }
-
-      .profile-photo-wrapper {
-        width: 90px;
-        height: 130px;
-      }
-
-      .profile-divider {
-        margin: 16px 22px 0;
-      }
-
-      .profile-role {
-        padding: 12px 22px 0;
-      }
-
-      .profile-body {
-        padding: 14px 22px 0;
-        max-height: 200px;
-      }
-
-      .profile-bottom {
-        padding: 12px 22px;
+        font-size: 34px;
       }
     }
   </style>
@@ -451,21 +400,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarMenu">
         <ul class="navbar-nav ms-auto gap-lg-4 gap-2 mt-3 mt-lg-0">
-          <li class="nav-item">
-            <a class="nav-link" href="spaMembership.html">Spa Membership</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="coreWellnessMenu.html">Core Wellness Menu</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="packages.html">Package</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="promotions.html">Promotions</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link active" href="team.html">Team</a>
-          </li>
+          <li class="nav-item"><a class="nav-link" href="spaMembership.html">Spa Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="coreWellnessMenu.html">Core Wellness Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="packages.html">Package</a></li>
+          <li class="nav-item"><a class="nav-link" href="promotions.html">Promotions</a></li>
+          <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
           <li class="nav-item">
             <a class="nav-link whatsapp-link" href="https://wa.me/966559937803" target="_blank">
               <i class="fab fa-whatsapp"></i> Contact us
@@ -477,26 +416,23 @@
   </nav>
 
   <div class="container mt-5">
-    <!-- FILTER BUTTONS -->
     <div class="text-center mb-4">
       <button class="filter-btn active" data-filter="all">All</button>
       <button class="filter-btn" data-filter="female">Female</button>
       <button class="filter-btn" data-filter="male">Male</button>
     </div>
-
-    <!-- TEAM LIST -->
     <div class="row" id="teamContainer"></div>
   </div>
 
-  <!-- ===== TEAM MODAL – PROFILE CARD ===== -->
+  <!-- ===== TEAM MODAL ===== -->
   <div class="modal fade" id="teamModal" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
 
         <div class="profile-card">
-          <!-- BG LAYERS -->
-          <div class="profile-bg-photo" id="modalBgPhoto"></div>
-          <div class="profile-bg-flag" id="modalBgFlag"></div>
+
+          <!-- BACKGROUND -->
+          <div class="profile-bg-base" id="modalBgBase"></div>
           <div class="profile-bg-overlay"></div>
 
           <!-- CORNERS -->
@@ -506,58 +442,41 @@
           <!-- CLOSE -->
           <button class="profile-close" data-bs-dismiss="modal">×</button>
 
-          <!-- CONTENT -->
-          <div class="profile-content">
-
-            <!-- TOP: BIG PHOTO + NAME OVERLAY -->
-            <div class="profile-top">
-              <!-- PHOTO LAYER -->
-              <div class="profile-photo-wrapper">
-                <div class="profile-photo-flag" id="modalPhotoFlag"></div>
-                <img id="modalImg" src="" alt="Profile Photo">
-              </div>
-              <!-- NAME OVERLAY -->
-              <div class="profile-name-block">
-                <div class="profile-nationality">
-                  <span class="profile-flag-emoji" id="modalFlagEmoji"></span>
-                  <span id="modalNationality"></span>
-                </div>
-                <div class="profile-firstname" id="modalFirstName"></div>
-                <div class="profile-lastname" id="modalLastName"></div>
-              </div>
+          <!-- ① STICKY: photo + name -->
+          <div class="profile-sticky">
+            <div class="profile-photo-wrapper">
+              <img id="modalImg" src="" alt="Profile Photo">
             </div>
+            <div class="profile-name-block">
+              <div class="profile-nationality">
+                <span class="profile-flag-emoji" id="modalFlagEmoji"></span>
+                <span id="modalNationality"></span>
+              </div>
+              <div class="profile-firstname" id="modalFirstName"></div>
+              <div class="profile-lastname" id="modalLastName"></div>
+            </div>
+          </div>
 
-            <!-- DIVIDER -->
+          <!-- ② SCROLLABLE: everything below name -->
+          <div class="profile-scroll">
             <div class="profile-divider"></div>
-
-            <!-- ROLE -->
             <div class="profile-role">
               <div class="profile-role-title" id="modalRole"></div>
               <div class="profile-spec" id="modalSpec"></div>
             </div>
-
-            <!-- SCROLL BODY -->
             <div class="profile-body">
-
-              <!-- QUALIFICATIONS -->
               <div class="profile-section-label">Qualifications</div>
               <ul class="profile-qual-list" id="modalQual"></ul>
-
-              <!-- SUMMARY -->
               <div class="profile-section-label">About</div>
               <div class="profile-summary" id="modalSummary"></div>
-
             </div>
-
-            <!-- BOTTOM -->
             <div class="profile-bottom">
               <div class="profile-brand">Core <span>Wellness</span></div>
               <div class="profile-gender-tag" id="modalGenderTag"></div>
             </div>
-
           </div>
-        </div>
 
+        </div>
       </div>
     </div>
   </div>
@@ -567,58 +486,39 @@
   <script src="./team.js"></script>
 
   <script>
-    // NATIONALITY → FLAG CONFIG
     const nationalityConfig = {
-      "Filipino": { emoji: "🇵🇭", flagClass: "flag-philippine" },
-      "Russian": { emoji: "🇷🇺", flagClass: "flag-russian" },
-      "Tunisian": { emoji: "🇹🇳", flagClass: "flag-tunisian" },
-      "Eritrean": { emoji: "🇪🇷", flagClass: "flag-eritrean" },
-      "Argentinian": { emoji: "🇦🇷", flagClass: "flag-argentinian" },
-      "Indonesian": { emoji: "🇮🇩", flagClass: "flag-indonesian" },
-      "Bangladeshi": { emoji: "🇧🇩", flagClass: "flag-bangladeshi" },
-      "Nepalian": { emoji: "🇳🇵", flagClass: "flag-nepalian" },
-      "Syrian": { emoji: "🇸🇾", flagClass: "flag-syrian" },
+      "Filipino": { emoji: "🇵🇭", bgClass: "bg-philippine" },
+      "Russian": { emoji: "🇷🇺", bgClass: "bg-russian" },
+      "Tunisian": { emoji: "🇹🇳", bgClass: "bg-tunisian" },
+      "Eritrean": { emoji: "🇪🇷", bgClass: "bg-eritrean" },
+      "Argentinian": { emoji: "🇦🇷", bgClass: "bg-argentinian" },
+      "Indonesian": { emoji: "🇮🇩", bgClass: "bg-indonesian" },
+      "Bangladeshi": { emoji: "🇧🇩", bgClass: "bg-bangladeshi" },
+      "Nepalian": { emoji: "🇳🇵", bgClass: "bg-nepalian" },
+      "Syrian": { emoji: "🇸🇾", bgClass: "bg-syrian" },
     };
 
-    // OVERRIDE openModal from team.js
     function openModal(id) {
       const member = teamData.find(m => m.id === id);
       if (!member) return;
 
-      // Split name (first + last)
-      const nameParts = member.name.trim().split(" ");
-      const firstName = nameParts[0] || "";
-      const lastName = nameParts.slice(1).join(" ") || firstName;
-      document.getElementById("modalFirstName").textContent = firstName;
-      document.getElementById("modalLastName").textContent = nameParts.length > 1 ? lastName : "";
+      const parts = member.name.trim().split(" ");
+      document.getElementById("modalFirstName").textContent = parts[0] || "";
+      document.getElementById("modalLastName").textContent = parts.length > 1 ? parts.slice(1).join(" ") : "";
 
-      // Nationality + flag
       const nat = member.nationality || "";
-      const config = nationalityConfig[nat] || { emoji: "🌍", flagClass: "" };
+      const config = nationalityConfig[nat] || { emoji: "🌍", bgClass: "bg-default" };
       document.getElementById("modalNationality").textContent = nat.toUpperCase();
       document.getElementById("modalFlagEmoji").textContent = config.emoji;
 
-      // Photo flag background
-      const photoFlag = document.getElementById("modalPhotoFlag");
-      photoFlag.className = "profile-photo-flag " + config.flagClass;
-
-      // Modal bg flag
-      const bgFlag = document.getElementById("modalBgFlag");
-      bgFlag.className = "profile-bg-flag " + config.flagClass;
-
-      // Photo
+      document.getElementById("modalBgBase").className = "profile-bg-base " + config.bgClass;
       document.getElementById("modalImg").src = member.img;
-
-      // Role & specializations
       document.getElementById("modalRole").textContent = member.role || "";
       document.getElementById("modalSpec").textContent = member.specializations || "";
 
-      // Qualifications
       const qualEl = document.getElementById("modalQual");
       qualEl.innerHTML = "";
-      const quals = Array.isArray(member.qualification)
-        ? member.qualification
-        : [member.qualification];
+      const quals = Array.isArray(member.qualification) ? member.qualification : [member.qualification];
       quals.forEach(q => {
         if (q && q.trim()) {
           const li = document.createElement("li");
@@ -627,14 +527,12 @@
         }
       });
 
-      // Summary
       document.getElementById("modalSummary").textContent = member.summary || "";
-
-      // Gender tag
       document.getElementById("modalGenderTag").textContent =
         member.gender === "female" ? "FEMALE TEAM" : "MALE TEAM";
 
-      // Show
+      document.querySelector(".profile-scroll").scrollTop = 0;
+
       new bootstrap.Modal(document.getElementById("teamModal")).show();
     }
   </script>
