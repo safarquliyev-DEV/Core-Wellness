@@ -933,8 +933,6 @@ button.active {
   margin-bottom: 14px;
   box-shadow: 0 1px 10px #C49B6F;
   color: #C49B6F;
-
-
 }
 
 .card.show {
@@ -1130,7 +1128,7 @@ button.active {
 .hero-section {
   min-height: 70vh;
   background: url("./assets/CoreWellness.png") no-repeat center;
-  background-size: 400px;
+  background-size: 550px;
   /* logonun ölçüsü */
   /* background-color: #0f2438; */
   /* yumşaq fon */
@@ -1153,7 +1151,7 @@ button.active {
 
 /* balance ur mind body & soul */
 .quick-access {
-  transform: translateY(-120px);
+  transform: translateY(-250px);
 }
 
 .luxury-tagline {
