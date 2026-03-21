@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link rel="icon" href="./assets/CoreWellness.png" type="image/png">
+
+  <style>
+    /* ===== TEAM MODAL – PROFILE CARD STYLE ===== */
+    #teamModal .modal-dialog {
+      max-width: 440px;
+    }
+
+    #teamModal .modal-content {
+      background: transparent;
+      border: none;
+      box-shadow: none;
+    }
+
+    /* THE CARD — fixed height, flex column */
+    .profile-card {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 40px 80px rgba(0, 0, 0, 0.85);
+      height: 90vh;
+      max-height: 700px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── BACKGROUND LAYERS ── */
+    .profile-bg-base {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      transition: background 0.4s ease;
+    }
+
+    .profile-bg-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg,
+          rgba(5, 10, 20, 0.25) 0%,
+          rgba(5, 10, 20, 0.50) 40%,
+          rgba(5, 10, 20, 0.97) 68%,
+          rgba(5, 10, 20, 1.00) 100%);
+      z-index: 1;
+    }
+
+    /* ── NATIONALITY GRADIENT BACKGROUNDS ── */
+    .bg-philippine {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-russian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-tunisian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-eritrean {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-argentinian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-indonesian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-bangladeshi {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-nepalian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-syrian {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    .bg-default {
+      background: linear-gradient(160deg, #1a1a2e 0%, #16213e 50%, #8B0000 100%);
+    }
+
+    /* ── CLOSE BUTTON ── */
+    .profile-close {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      background: rgba(196, 155, 111, 0.15);
+      border: 1px solid rgba(196, 155, 111, 0.4);
+      color: #C49B6F;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 20;
+    }
+
+    .profile-close:hover {
+      background: #C49B6F;
+      color: #0f2438;
+    }
+
+    /* ── CORNER ACCENTS ── */
+    .profile-corner-tl {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 20px;
+      height: 20px;
+      border-top: 1.5px solid rgba(196, 155, 111, 0.45);
+      border-left: 1.5px solid rgba(196, 155, 111, 0.45);
+      z-index: 20;
+    }
+
+    .profile-corner-br {
+      position: absolute;
+      bottom: 12px;
+      right: 12px;
+      width: 20px;
+      height: 20px;
+      border-bottom: 1.5px solid rgba(196, 155, 111, 0.45);
+      border-right: 1.5px solid rgba(196, 155, 111, 0.45);
+      z-index: 20;
+    }
+
+    /* ══════════════════════════════════════
+       STICKY TOP: photo + name — never scrolls
+    ══════════════════════════════════════ */
+    .profile-sticky {
+      position: relative;
+      z-index: 5;
+      flex-shrink: 0;
+    }
+
+    .profile-photo-wrapper {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .profile-photo-wrapper img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+      border: none;
+      background: transparent;
+    }
+
+    .profile-name-block {
+      padding: 14px 24px 16px;
+      background: rgba(5, 10, 20, 0.55);
+    }
+
+    .profile-nationality {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 3px;
+      color: rgba(255, 255, 255, 0.75);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+      font-family: 'Montserrat', sans-serif;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+
+    .profile-flag-emoji {
+      font-size: 16px;
+    }
+
+    .profile-firstname {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 38px;
+      font-weight: 300;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    .profile-lastname {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 700;
+      color: #C49B6F;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+
+    /* ══════════════════════════════════════
+       SCROLLABLE BOTTOM
+    ══════════════════════════════════════ */
+    .profile-scroll {
+      position: relative;
+      z-index: 5;
+      flex: 1;
+      overflow-y: auto;
+      background: rgba(5, 10, 20, 0.97);
+      scrollbar-width: thin;
+      scrollbar-color: #C49B6F transparent;
+    }
+
+    .profile-scroll::-webkit-scrollbar {
+      width: 3px;
+    }
+
+    .profile-scroll::-webkit-scrollbar-thumb {
+      background: #C49B6F;
+      border-radius: 3px;
+    }
+
+    .profile-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .profile-divider {
+      margin: 0 24px;
+      height: 1px;
+      background: linear-gradient(90deg, #C49B6F, rgba(196, 155, 111, 0.05));
+    }
+
+    .profile-role {
+      padding: 14px 24px 0;
+    }
+
+    .profile-role-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #C49B6F;
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .profile-spec {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.3px;
+      margin-top: 3px;
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.5;
+    }
+
+    .profile-body {
+      padding: 14px 24px 10px;
+    }
+
+    .profile-section-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: rgba(196, 155, 111, 0.55);
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .profile-qual-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .profile-qual-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 400;
+      color: rgba(255, 255, 255, 0.7);
+      font-family: 'Montserrat', sans-serif;
+      line-height: 1.5;
+    }
+
+    .profile-qual-list li::before {
+      content: "";
+      width: 14px;
+      min-width: 14px;
+      height: 1px;
+      background: #C49B6F;
+      margin-top: 8px;
+    }
+
+    .profile-summary {
+      font-size: 11px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.38);
+      line-height: 1.7;
+      font-family: 'Montserrat', sans-serif;
+      margin-bottom: 16px;
+    }
+
+    .profile-bottom {
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-top: 1px solid rgba(196, 155, 111, 0.12);
+    }
+
+    .profile-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.22);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .profile-brand span {
+      color: rgba(196, 155, 111, 0.45);
+    }
+
+    .profile-gender-tag {
+      font-size: 9px;
+      letter-spacing: 2px;
+      color: rgba(255, 255, 255, 0.18);
+      text-transform: uppercase;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    /* Modal animation */
+    #teamModal .modal-dialog {
+      transform: scale(0.88);
+      transition: transform 0.35s ease;
+    }
+
+    #teamModal.show .modal-dialog {
+      transform: scale(1);
+    }
+
+    @media (max-width: 576px) {
+      #teamModal .modal-dialog {
+        margin: 8px;
+        max-width: calc(100vw - 16px);
+      }
+
+      .profile-card {
+        height: 92vh;
+        max-height: none;
+      }
+
+      .profile-photo-wrapper,
+      .profile-photo-wrapper img {
+        height: 240px;
+      }
+
+      .profile-firstname {
+        font-size: 30px;
+      }
+
+      .profile-lastname {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+
+<body class="page-team">
+  <nav class="navbar navbar-expand-lg custom-navbar">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="./index.html">
+        <img src="./assets/CoreWellness.png" alt="Logo" width="100" height="50" class="me-2">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto gap-lg-4 gap-2 mt-3 mt-lg-0">
+          <li class="nav-item"><a class="nav-link" href="spaMembership.html">Spa Membership</a></li>
+          <li class="nav-item"><a class="nav-link" href="coreWellnessMenu.html">Core Wellness Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="packages.html">Package</a></li>
+          <li class="nav-item"><a class="nav-link" href="promotion.html">Promotions</a></li>
+          <li class="nav-item"><a class="nav-link active" href="team.html">Team</a></li>
+          <li class="nav-item">
+            <a class="nav-link whatsapp-link" href="https://wa.me/966559937803" target="_blank">
+              <i class="fab fa-whatsapp"></i> Contact us
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-5">
+    <div class="text-center mb-4">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="female">Female</button>
+      <button class="filter-btn" data-filter="male">Male</button>
+    </div>
+    <div class="row" id="teamContainer"></div>
+  </div>
+
+  <!-- ===== TEAM MODAL ===== -->
+  <div class="modal fade" id="teamModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+
+        <div class="profile-card">
+
+          <!-- BACKGROUND -->
+          <div class="profile-bg-base" id="modalBgBase"></div>
+          <div class="profile-bg-overlay"></div>
+
+          <!-- CORNERS -->
+          <div class="profile-corner-tl"></div>
+          <div class="profile-corner-br"></div>
+
+          <!-- CLOSE -->
+          <button class="profile-close" data-bs-dismiss="modal">×</button>
+
+          <!-- ① STICKY: photo + name -->
+          <div class="profile-sticky">
+            <div class="profile-photo-wrapper">
+              <img id="modalImg" src="" alt="Profile Photo">
+            </div>
+            <div class="profile-name-block">
+              <div class="profile-nationality">
+                <span class="profile-flag-emoji" id="modalFlagEmoji"></span>
+                <span id="modalNationality"></span>
+              </div>
+              <div class="profile-firstname" id="modalFirstName"></div>
+              <div class="profile-lastname" id="modalLastName"></div>
+            </div>
+          </div>
+
+          <!-- ② SCROLLABLE: everything below name -->
+          <div class="profile-scroll">
+            <div class="profile-divider"></div>
+            <div class="profile-role">
+              <div class="profile-role-title" id="modalRole"></div>
+              <div class="profile-spec" id="modalSpec"></div>
+            </div>
+            <div class="profile-body">
+              <div class="profile-section-label">Qualifications</div>
+              <ul class="profile-qual-list" id="modalQual"></ul>
+              <div class="profile-section-label">About</div>
+              <div class="profile-summary" id="modalSummary"></div>
+            </div>
+            <div class="profile-bottom">
+              <div class="profile-brand">Core <span>Wellness</span></div>
+              <div class="profile-gender-tag" id="modalGenderTag"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./script.js"></script>
+  <script src="./team.js"></script>
+
+  <script>
+    const nationalityConfig = {
+      "Filipino": { emoji: "🇵🇭", bgClass: "bg-philippine" },
+      "Russian": { emoji: "🇷🇺", bgClass: "bg-russian" },
+      "Tunisian": { emoji: "🇹🇳", bgClass: "bg-tunisian" },
+      "Eritrean": { emoji: "🇪🇷", bgClass: "bg-eritrean" },
+      "Argentinian": { emoji: "🇦🇷", bgClass: "bg-argentinian" },
+      "Indonesian": { emoji: "🇮🇩", bgClass: "bg-indonesian" },
+      "Bangladeshi": { emoji: "🇧🇩", bgClass: "bg-bangladeshi" },
+      "Nepalian": { emoji: "🇳🇵", bgClass: "bg-nepalian" },
+      "Syrian": { emoji: "🇸🇾", bgClass: "bg-syrian" },
+    };
+
+    function openModal(id) {
+      const member = teamData.find(m => m.id === id);
+      if (!member) return;
+
+      const parts = member.name.trim().split(" ");
+      document.getElementById("modalFirstName").textContent = parts[0] || "";
+      document.getElementById("modalLastName").textContent = parts.length > 1 ? parts.slice(1).join(" ") : "";
+
+      const nat = member.nationality || "";
+      const config = nationalityConfig[nat] || { emoji: "🌍", bgClass: "bg-default" };
+      document.getElementById("modalNationality").textContent = nat.toUpperCase();
+      document.getElementById("modalFlagEmoji").textContent = config.emoji;
+
+      document.getElementById("modalBgBase").className = "profile-bg-base " + config.bgClass;
+      document.getElementById("modalImg").src = member.img;
+      document.getElementById("modalRole").textContent = member.role || "";
+      document.getElementById("modalSpec").textContent = member.specializations || "";
+
+      const qualEl = document.getElementById("modalQual");
+      qualEl.innerHTML = "";
+      const quals = Array.isArray(member.qualification) ? member.qualification : [member.qualification];
+      quals.forEach(q => {
+        if (q && q.trim()) {
+          const li = document.createElement("li");
+          li.textContent = q.trim();
+          qualEl.appendChild(li);
+        }
+      });
+
+      document.getElementById("modalSummary").textContent = member.summary || "";
+      document.getElementById("modalGenderTag").textContent =
+        member.gender === "female" ? "FEMALE TEAM" : "MALE TEAM";
+
+      document.querySelector(".profile-scroll").scrollTop = 0;
+
+      new bootstrap.Modal(document.getElementById("teamModal")).show();
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1628 @@
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  color: #C49B6F;
+  /* position: relative; */
+  /* overflow-x: hidden; */
+}
+
+
+
+/* landing background */
+.page-landing::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: url("./assets/Reception.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(1px);
+  /* 🔥 BLUR DƏRƏCƏSİ – buranı dəyiş */
+  transform: scale(1.1);
+  /*blur kenarlarini gizladir*/
+  opacity: 0.45;
+  /* 🔥 ŞƏKİL GÜCÜ – buranı dəyiş */
+
+  z-index: -1;
+}
+
+.page-landing {
+  background: #0f2438;
+  min-height: 100vh;
+}
+
+/* .page-landing::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 36, 56, 0.6);
+  z-index: -1;
+} */
+
+
+/* menu background */
+.page-menu::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: url("./assets/team/menu/corridor.webp");
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: no-repeat; */
+
+  filter: blur(1px);
+  /* 🔥 BLUR DƏRƏCƏSİ – buranı dəyiş */
+  transform: scale(1.1);
+  /*blur kenarlarini gizladir*/
+  opacity: 0.45;
+  /* 🔥 ŞƏKİL GÜCÜ – buranı dəyiş */
+
+  z-index: -1;
+}
+
+/* Spa Membership bashlangicc */
+/* ===== HERO ===== */
+
+.page-membership {
+  background: #0f2438;
+  min-height: 100vh;
+}
+
+.page-membership::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("./assets/Reception.webp");
+  background-size: cover;
+  background-position: center;
+  filter: blur(1px);
+  transform: scale(1.1);
+  opacity: 0.45;
+  z-index: -1;
+}
+
+.membership-hero {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /* 🔥 BURAYA ÖZ ŞƏKLİNİ ƏLAVƏ ET */
+  background-image: url("./assets/team/menu/vitality2.webp");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+/* qaranlıq örtük */
+.membership-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 20, 35, 0.65);
+  z-index: 0;
+}
+
+.membership-hero>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* logo qutusu */
+.hero-logo-box {
+  background: rgba(15, 36, 56, 0.75);
+  border: 1px solid rgba(196, 155, 111, 0.3);
+  border-radius: 16px;
+  padding: 32px 40px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  margin-bottom: 48px;
+}
+
+/* 🔥 LOGO ŞƏKLİ – buraya öz şəklini qoy */
+.hero-logo-box img {
+  width: 120px;
+  height: auto;
+  margin-bottom: 16px;
+}
+
+.hero-logo-box h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  color: #C49B6F;
+  letter-spacing: 3px;
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* ===== MEMBERSHIP BUTTONS ===== */
+.membership-btns {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.membership-btn {
+  padding: 16px 36px;
+  border-radius: 50px;
+  border: 1.5px solid #C49B6F;
+  background: transparent;
+  color: #C49B6F;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.membership-btn:hover {
+  background: #C49B6F;
+  color: #0f2438;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 30px rgba(196, 155, 111, 0.3);
+}
+
+/* ===== MODAL ===== */
+.membership-modal .modal-content {
+  background: #0a1623;
+  border: 1px solid rgba(196, 155, 111, 0.3);
+  border-radius: 20px;
+  color: #fff;
+}
+
+.membership-modal .modal-header {
+  border-bottom: 1px solid rgba(196, 155, 111, 0.2);
+  padding: 24px 28px;
+}
+
+.membership-modal .modal-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px;
+  color: #fff;
+}
+
+.membership-modal .modal-title span {
+  color: #C49B6F;
+}
+
+.membership-modal .btn-close {
+  filter: invert(1);
+  opacity: 0.6;
+}
+
+.membership-modal .modal-body {
+  padding: 24px 28px;
+  max-height: 70vh;
+  overflow-y: auto;
+}
+
+.membership-modal .modal-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.membership-modal .modal-body::-webkit-scrollbar-thumb {
+  background: #C49B6F;
+  border-radius: 4px;
+}
+
+/* price badge */
+.price-badge {
+  display: inline-block;
+  background: rgba(196, 155, 111, 0.15);
+  border: 1px solid #C49B6F;
+  color: #C49B6F;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 24px;
+  border-radius: 30px;
+  margin-bottom: 24px;
+}
+
+/* membership table */
+.mem-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+.mem-table th {
+  color: #C49B6F;
+  font-weight: 500;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(196, 155, 111, 0.3);
+  font-family: 'Playfair Display', serif;
+}
+
+.mem-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  color: #e0d5c5;
+  vertical-align: middle;
+}
+
+.mem-table td:last-child {
+  text-align: center;
+  color: #C49B6F;
+  font-weight: 500;
+}
+
+.check-icon {
+  color: #C49B6F;
+  font-size: 16px;
+}
+
+.footnote {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 16px;
+  line-height: 1.6;
+}
+
+@media (max-width: 600px) {
+  .hero-logo-box {
+    padding: 24px 20px;
+    margin: 0 16px 32px;
+  }
+
+  .membership-btn {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .mem-table {
+    font-size: 12px;
+  }
+
+  .mem-table th,
+  .mem-table td {
+    padding: 10px 10px;
+  }
+}
+
+
+
+.membership-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 0 20px;
+}
+
+.mem-card {
+  width: 400px;
+  padding: 18px 20px;
+  text-align: center;
+  background: #0f2438;
+  border: 1px solid #C49B6F;
+  border-radius: 16px;
+  color: #C49B6F;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.mem-card h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin: 0;
+}
+
+.mem-card:hover {
+  background: #C49B6F;
+  color: #0f2438;
+  transform: translateY(-4px);
+}
+
+.mem-card:hover h3 {
+  color: #0f2438;
+}
+
+@media (max-width: 480px) {
+  .mem-card {
+    width: 90vw;
+  }
+}
+
+/* bitdi Spa Membership */
+
+/* ===== DYNAMIC MENU BACKGROUNDS ===== */
+
+.page-menu::before {
+  transition: background-image 0.4s ease, opacity 0.4s ease;
+}
+
+/* LADIES */
+.page-menu.ladies::before {
+  background-image: url("./assets/team/menu/femalereception.webp");
+}
+
+.page-menu.ladies-massage::before {
+  background-image: url("./assets/team/menu/corridor.webp");
+}
+
+.page-menu.ladies-facial::before {
+  background-image: url("./assets/team/menu/Treatment2.webp");
+}
+
+.page-menu.ladies-body::before {
+  background-image: url("./assets/team/menu/tresament2.webp");
+}
+
+.page-menu.ladies-technologies::before {
+  background-image: url("./assets/team/menu/Technology.webp");
+}
+
+.page-menu.ladies-hairsalon::before {
+  background-image: url("./assets/team/menu/needtochange.png");
+}
+
+.page-menu.ladies-nail::before {
+  background-image: url("./assets/team/menu/Nail.webp");
+}
+
+/* GENTLEMEN */
+.page-menu.gentlemen::before {
+  background-image: url("./assets/team/menu/needtochange.png");
+}
+
+.page-menu.gentlemen-massage::before {
+  background-image: url("./assets/team/menu/corridor.webp");
+}
+
+.page-menu.gentlemen-facial::before {
+  background-image: url("./assets/team/menu/Treatment2.webp");
+}
+
+.page-menu.gentlemen-body::before {
+  background-image: url("./assets/team/menu/tresament2.webp");
+}
+
+.page-menu.gentlemen-technologies::before {
+  background-image: url("./assets/team/menu/Technology.webp");
+}
+
+.page-menu.gentlemen-barber::before {
+  background-image: url("./assets/team/menu/needtochange.png");
+}
+
+.page-menu.gentlemen-nail::before {
+  background-image: url("./assets/team/menu/needtochange.png");
+}
+
+.page-menu.spa-etiquette {
+  background: url("./assets/team/etiquette.webp") center/cover no-repeat fixed;
+}
+
+.etiquette-wrapper {
+  max-width: 900px;
+  margin: 50px auto;
+  padding: 40px;
+  background: #0f2438;
+  color: #fff;
+  border-radius: 20px;
+  line-height: 1.8;
+}
+
+.etiquette-wrapper h2 {
+  margin-top: 30px;
+  color: #C49B6F;
+}
+
+.etiquette-wrapper ul {
+  padding-left: 20px;
+}
+
+.etiquette-wrapper li {
+  margin-bottom: 10px;
+}
+
+/* scroll burdan bashdiyir */
+.etiquette-wrapper {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+
+.etiquette-wrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+.etiquette-wrapper::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.etiquette-wrapper::-webkit-scrollbar-thumb {
+  background: #C49B6F;
+  border-radius: 10px;
+}
+
+.page-menu {
+  background: #0f2438;
+  min-height: 100vh;
+}
+
+/* .page-landing::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 36, 56, 0.6);
+  z-index: -1;
+} */
+
+/* packages background */
+.page-packages::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+
+  background-image: url("./assets/team/menu/Treatment2.webp");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  filter: blur(1px);
+  /* 🔥 BLUR DƏRƏCƏSİ – buranı dəyiş */
+  transform: scale(1.1);
+  /*blur kenarlarini gizladir*/
+  opacity: 0.45;
+  /* 🔥 ŞƏKİL GÜCÜ – buranı dəyiş */
+
+  z-index: -1;
+}
+
+.page-packages {
+  background: #0f2438;
+  min-height: 100vh;
+}
+
+/* .page-landing::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 36, 56, 0.6);
+  z-index: -1;
+} */
+
+
+.modal-body::-webkit-scrollbar {
+  width: 4px;
+}
+
+.modal-body::-webkit-scrollbar-thumb {
+  background: #C49B6F;
+  border-radius: 4px;
+}
+
+.modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Team start */
+/* FILTER BUTTONS */
+
+/* .filter-btn {
+  padding: 10px 25px;
+  margin: 5px;
+  border-radius: 30px;
+  border: 1px solid #c5a47e;
+  background: transparent;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+  background: #c5a47e;
+  color: #000;
+} */
+
+
+/* TEAM LIST */
+
+.team-list {
+  max-width: 800px;
+  margin: auto;
+}
+
+/* Small list layout */
+
+.team-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.team-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Modal */
+
+.team-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.modal-content-box {
+  background: #0b1c2d;
+  padding: 30px;
+  border-radius: 12px;
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content-box img {
+  width: 120px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.close-modal {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 22px;
+  cursor: pointer;
+  color: #d4af37;
+}
+
+/* burdan silersan modul team */
+#teamModal .modal-body {
+  max-height: 75vh;
+  overflow-y: auto;
+  padding-right: 10px;
+}
+
+/* Premium scroll style */
+#teamModal .modal-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+#teamModal .modal-body::-webkit-scrollbar-thumb {
+  background: #c8a96a;
+  border-radius: 10px;
+}
+
+/* TEAM MODAL FIXED SCROLL */
+
+#teamModal .modal-dialog {
+  max-width: 900px;
+}
+
+#teamModal .modal-content {
+  max-height: 85vh;
+  overflow: hidden;
+  /* 🔥 əsas budur */
+  border-radius: 20px;
+}
+
+#teamModal .modal-body {
+  max-height: 70vh;
+  overflow-y: auto;
+  padding-right: 15px;
+}
+
+
+
+
+
+/* .page-team::before {
+  content: "";
+  position: fixed;
+  inset: 0; */
+
+/* background-image: url("./assets/team/Team/all.webp"); */
+/* background-size: cover; */
+/* background-position: center; */
+/* background-repeat: no-repeat; */
+
+/* filter: blur(15px); */
+/* 🔥 BLUR DƏRƏCƏSİ – buranı dəyiş */
+/* transform: scale(1.1); */
+/*blur kenarlarini gizladir*/
+/* opacity: 0.75; */
+/* 🔥 ŞƏKİL GÜCÜ – buranı dəyiş */
+
+/* z-index: -2; */
+/* } */
+
+/* BURDANNNNNNNNNNNNNNNNNNNNNN */
+/* .team-card {
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  margin-bottom: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.team-card:hover {
+  background: rgba(197, 164, 126, 0.2);
+} */
+
+.team-img {
+  width: 65px;
+  height: 65px;
+  min-width: 65px;
+  /* ← genişlik sabit qalsın */
+  min-height: 65px;
+  /* ← hündürlük sabit qalsın */
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+/* silinacaq sheylar */
+
+.page-team {
+  background: linear-gradient(rgba(95, 74, 68, 0.966), rgba(25, 11, 5, 0.95)),
+    url('./assets/team/Team/all.webp') center/cover no-repeat fixed;
+  color: #fff;
+  min-height: 100vh;
+}
+
+.filter-btn {
+  padding: 12px 30px;
+  margin: 8px;
+  border-radius: 50px;
+  border: 1px solid #c5a47e;
+  background: transparent;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: all 0.4s ease;
+}
+
+.filter-btn:hover {
+  background: #c5a47e;
+  color: #000;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(197, 164, 126, 0.4);
+}
+
+.filter-btn.active {
+  background: #c5a47e;
+  color: #000;
+}
+
+.team-card {
+
+  display: flex;
+  align-items: center;
+  padding: 1px;
+  margin-bottom: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 0.6s forwards;
+}
+
+.team-card:hover {
+  background: rgba(197, 164, 126, 0.2);
+  transform: scale(1.03);
+}
+
+.label {
+  color: #c5a47e;
+  /* gold luxury */
+  font-weight: 600;
+}
+
+.value {
+  color: #e6e6e6;
+  margin-left: 8px;
+}
+
+.modal-body p {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.085);
+  padding-bottom: 8px;
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.luxury-modal {
+  background: linear-gradient(145deg, #0f1c2a, #13293d);
+  border-radius: 20px;
+  border: 1px solid rgba(197, 164, 126, 0.4);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+}
+
+
+
+.modal.fade .modal-dialog {
+  transform: scale(0.8);
+  transition: transform 0.4s ease;
+}
+
+.modal.show .modal-dialog {
+  transform: scale(1);
+}
+
+
+
+
+
+
+
+/* .page-landing::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 36, 56, 0.6);
+  z-index: -1;
+} */
+
+/* employeeFemale background */
+/* employeeMale background */
+
+/* female employee list */
+/* Kart ümumi stil */
+/* .team-card {
+  background-color: #0f2438;
+  border-radius: 15px;
+  padding: 12px;
+  box-shadow: 0 2px 6px #C49B6F;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+} */
+
+/* Hover effekti */
+/* .team-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 12px #C49B6F;
+} */
+
+/* Şəkil */
+/* .team-card img {
+  width: 100%;
+  height: 180px; */
+/* object-fit: contain; */
+/* şəkil kəsilmir */
+/* border-radius: 50px; */
+/* margin-bottom: 10px; */
+/* background: #0f2438; */
+/* fon ilə uyğunluq */
+/* padding: 5px; */
+/* } */
+
+/* Button */
+/* .team-btn {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #C49B6F;
+  background: #C49B6F;
+  color: #0f2438;
+  transition: all 0.3s ease;
+}
+
+.team-btn:hover {
+  background: #0f2438;
+  color: #C49B6F;
+  border-color: #C49B6F;
+} */
+
+/* bura kimi ranglar tamam */
+/* Collapse info */
+/* .team-info {
+  margin-top: 10px;
+  padding: 10px;
+  font-size: 14px;
+  text-align: left;
+  border-left: 3px solid#C49B6F;
+  border-radius: 6px;
+  background-color: #0f2438;
+  box-shadow: 0 1px 4px #C49B6F;
+  animation: fadeIn 0.25s ease;
+} */
+
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  color: #C49B6F;
+  margin-bottom: 30px;
+}
+
+/* ===== SWITCHES ===== */
+.gender-switch,
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+button {
+  padding: 10px 22px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  background: #C49B6F;
+  color: #0f2438;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+button.active {
+  background: #0f2438;
+  color: #C49B6F;
+  border: 2px solid #C49B6F;
+}
+
+/* ALT KATEQORİYA DÜYMƏLƏRİ (Massage, Facial, Body...) */
+.tabs button {
+  background: #0f2438;
+  color: #C49B6F;
+  border: 1.5px solid #C49B6F;
+}
+
+.tabs button:hover {
+  /* background: rgba(223, 16, 65, 0.15); */
+  opacity: 0.8;
+}
+
+.tabs button.active {
+  background: #C49B6F;
+  color: #0f2438;
+  border: 2px solid #C49B6F;
+}
+
+/* ===== CARDS ===== */
+.cards {
+  margin-top: 30px;
+}
+
+.card {
+  background: #0f2438;
+  border-radius: 16px;
+  padding: 2px;
+  margin-bottom: 14px;
+  box-shadow: 0 1px 10px #C49B6F;
+  color: #C49B6F;
+}
+
+.card.show {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.card-header strong {
+  color: #C49B6F;
+  font-size: 18px;
+}
+
+@media (max-width: 600px) {
+
+  .gender-switch button,
+  .tabs button {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .card {
+    padding: 12px 16px;
+  }
+
+  .card-header {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .card-title {
+    font-size: 13px;
+  }
+
+  .header-price {
+    font-size: 11px;
+    opacity: 0.85;
+    line-height: 1.5;
+  }
+}
+
+/* MODAL */
+/* .modal {
+  position: fixed;
+  inset: 0;
+  background: #0f2438;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+} */
+
+.modal-content {
+  background: #0f2438;
+  padding: 30px;
+  border-radius: 18px;
+  max-width: 600px;
+  width: 90%;
+  color: #C49B6F;
+}
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 22px;
+  color: #C49B6F;
+}
+
+/* MOBILE */
+@media(max-width:768px) {
+  h1 {
+    font-size: 26px;
+  }
+}
+
+/* NAVBAR BASE */
+.custom-navbar {
+  background-color: #0f2438;
+  /* dark navy */
+  padding: 14px 24px;
+}
+
+/* BRAND */
+.custom-navbar .navbar-brand {
+  color: #C49B6F;
+  font-weight: 600;
+  font-size: 18px;
+}
+
+.custom-navbar .navbar-brand:hover {
+  color: #E0C08A;
+}
+
+/* NAV LINKS */
+.custom-navbar .nav-link {
+  color: #C49B6F;
+  font-weight: 500;
+  position: relative;
+  padding: 6px 0;
+}
+
+/* HOVER EFFECT (gold underline) */
+.custom-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #C49B6F;
+  transition: width 0.3s ease;
+}
+
+.custom-navbar .nav-link:hover::after,
+.custom-navbar .nav-link.active::after {
+  width: 100%;
+}
+
+/* ACTIVE LINK */
+.custom-navbar .nav-link.active {
+  color: #E0C08A;
+}
+
+/* REMOVE BOOTSTRAP DEFAULT */
+.custom-navbar .nav-link:focus,
+.custom-navbar .nav-link:hover {
+  color: #E0C08A;
+}
+
+.gender-card {
+  cursor: pointer;
+  background-color: #0f2438;
+  color: #C49B6F;
+  border: 1px solid #C49B6F;
+  transition: all 0.3s ease;
+  min-height: 220px;
+}
+
+.gender-card:hover {
+  background-color: #C49B6F;
+  color: #0f2438;
+  transform: translateY(-6px);
+}
+
+.gender-card h2 {
+  font-family: 'Playfair Display', serif;
+}
+
+.cards .card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.cards .card.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.bali-icon {
+  font-size: 42px;
+  color: #C49B6F;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+}
+
+.gender-card:hover .bali-icon {
+  color: #0f2438;
+  transform: scale(1.1);
+}
+
+
+
+/* Fade-in animasiya */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* landing area */
+
+
+.hero-section {
+  min-height: 70vh;
+  background: url("./assets/CoreWellness.png") no-repeat center;
+  background-size: 550px;
+  /* logonun ölçüsü */
+  /* background-color: #0f2438; */
+  /* yumşaq fon */
+  position: relative;
+  transform: translateY(-80px);
+  position: relative;
+}
+
+/* text oxunsun deyə */
+.hero-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* balance ur mind body & soul */
+.quick-access {
+  transform: translateY(-250px);
+}
+
+@media (max-width: 576px) {
+  .hero-section {
+    background-size: 280px;
+  }
+
+  .quick-access {
+    transform: translateY(-80px);
+  }
+}
+
+
+.luxury-tagline {
+  position: absolute;
+  left: 50%;
+  top: 70%;
+  /* logo altı */
+  transform: translateX(-50%);
+
+  font-family: 'Great Vibes', cursive;
+  font-size: 28px;
+  letter-spacing: 2px;
+
+  color: #d4b07a;
+  opacity: 0.85;
+
+  text-shadow: 0 0 8px rgba(212, 176, 122, 0.35);
+}
+
+/* core wellnes menu */
+.card-body {
+  display: none;
+  margin-top: 12px;
+  line-height: 1.7;
+  font-size: 14px;
+  color: #C49B6F;
+}
+
+.card-body.open {
+  display: block;
+}
+
+/* title clickable hiss olunsun */
+.card-header {
+  cursor: pointer;
+}
+
+/* price */
+.price-box {
+  margin-top: 10px;
+}
+
+.price-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+/* view details button */
+.view-btn {
+  margin-top: 12px;
+  padding: 6px 16px;
+  border-radius: 20px;
+  border: 1px solid #C49B6F;
+  background: transparent;
+  color: #C49B6F;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.view-btn:hover {
+  background: #C49B6F;
+  color: #0f2438;
+}
+
+.card-body.short .view-btn {
+  display: inline-block;
+  margin-top: 12px;
+}
+
+/* burdan package modal bashliyir PLUS*/
+/* ===== QUICK MENU (IZOLYASIYA) ===== */
+
+.quick-menu-wrapper {
+  margin-top: 60px;
+}
+
+.quick-menu-card {
+  width: 280px;
+  /* hamısı eyni uzunluqda */
+  padding: 18px 20px;
+  /* nazik görünüş */
+  text-align: center;
+
+  background: #0f2438;
+  border: 1px solid #C49B6F;
+  border-radius: 16px;
+
+  color: #C49B6F;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+}
+
+.quick-menu-card h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin: 0;
+}
+
+.quick-menu-card:hover {
+  background: #C49B6F;
+  color: #0f2438;
+  transform: translateY(-4px);
+}
+
+.main-core {
+  font-family: 'Playfair Display', serif;
+  min-height: 40vh;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.main-core .core-logo img {
+  max-width: 220px;
+  /* 🔑 əsas limit */
+  width: 100%;
+  /* responsive */
+  height: auto;
+  /* nisbət qorunsun */
+  object-fit: contain;
+  /* daşma olmasın */
+}
+
+.main-core .core-pack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 25vh;
+}
+
+.main-core .core-pack img {
+  width: 120px;
+  height: auto;
+}
+
+.main-core .core-pack .core-star {
+  margin-bottom: 0.5rem;
+}
+
+.main-core .core-pack .core-star img {
+  width: 7rem;
+  height: 7rem;
+}
+
+.main-core .core-pack .core-desc {
+  font-family: "Playpen Sans", Courier, monospace;
+  font-size: 3rem;
+  font-weight: thin;
+}
+
+.spa-packages-title {
+  font-family: 'Playfair Display', serif;
+  font-style: thin, italic;
+  font-size: 30px;
+  color: #f6f3f0;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+/* core.in yazilishi */
+/* modal first section */
+
+
+.modal-intro::after {
+  content: "";
+  width: 80px;
+  height: 1px;
+  background: rgba(255, 255, 255, .3);
+  margin: 16px auto 0;
+}
+
+
+/* logo */
+.core-logo {
+  background: transparent;
+  /* ❌ fon yox */
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.core-text {
+  font-size: 64px;
+  font-weight: 300;
+  letter-spacing: 10px;
+  color: #ffffff;
+  line-height: 1;
+}
+
+.wellness-text {
+  font-size: 16px;
+  letter-spacing: 6px;
+  color: #cfae70;
+  /* spa vibe üçün qızılı ton */
+  margin-top: 6px;
+}
+
+/* packages MODAL STYLE */
+.wellness-modal {
+  background: #0f2438;
+  color: #c47f6f;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(196, 155, 111, 0.35);
+}
+
+.wellness-modal .modal-title {
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  letter-spacing: 1px;
+}
+
+#name {
+  color: rgb(245, 241, 241);
+}
+
+#time {
+  color: #c49b73;
+}
+
+.modal-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem 0;
+  font-family: 'Segoe UI', Tahoma, sans-serif;
+  font-style: italic;
+  font-size: 18px;
+  /* border-bottom: 1px solid rgba(196, 155, 111, 0.4); */
+  padding-bottom: 6px;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 14px;
+  margin: 0;
+}
+
+.menu-list li {
+  display: flex;
+  justify-content: space-between;
+  padding: 7px 0;
+  font-size: 12px;
+  /* border-bottom: 1px dashed rgba(236, 57, 7, 0.25); */
+}
+
+.menu-list li span:last-child {
+  opacity: 0.85;
+}
+
+.wellness-modal {
+  background-image: url("./assets/design.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #f5f0f0;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* overlay kimi oxunsun deyə */
+/* .spa-package-wrapper {
+  background: rgba(15, 36, 56, 0.45);
+  backdrop-filter: blur(2px);
+  padding: 30px;
+  border-radius: 18px;
+}
+
+.spa-package-table {
+  color: #E6D3B1;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+}
+
+.spa-package-table th {
+  font-weight: 500;
+  border: none;
+  color: #C9A46A;
+}
+
+.spa-package-table td {
+  background: transparent;
+  border: 1px solid rgba(201, 164, 106, 0.35);
+  padding: 14px 18px;
+  border-radius: 10px;
+  color: #f5f1eb;
+}
+
+
+.spa-package-table tbody tr:hover td {
+  background: rgba(255, 255, 255, 0.12);
+  transition: 0.3s;
+} */
+
+
+/* ===== SPA PACKAGE TABLE – 1:1 FINAL ===== */
+
+.spa-package-wrapper {
+  background: transparent;
+  padding: 10px;
+}
+
+/* TABLE BASE */
+.spa-package-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+  font-size: 12px;
+}
+
+/* HEADER */
+.spa-package-table thead th {
+  font-family: 'Playfair Display', serif;
+  font-weight: 500;
+  color: #c49b73;
+  text-align: center;
+  padding: 14px 18px;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.6); */
+}
+
+/* ROWS */
+.spa-package-table tbody td {
+  padding: 14px 18px;
+  /* border-bottom: 1px solid rgba(255, 255, 255, 0.35); */
+  color: #ffffff;
+}
+
+/* COLUMN LINES */
+/* .spa-package-table th:not(:last-child), */
+.spa-package-table td:not(:last-child) {
+  border-right: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+/* FIRST COLUMN (bold like image) */
+/* .spa-package-table tbody td:first-child {
+  font-weight: 600;
+} */
+
+/* PRICE COLOR */
+.spa-package-table tbody td:last-child {
+  font-weight: 500;
+}
+
+/* REMOVE BOOTSTRAP EFFECTS */
+.spa-package-table tr,
+.spa-package-table td,
+.spa-package-table th {
+  background: transparent !important;
+  border-radius: 0 !important;
+}
+
+/* NO HOVER (image-də hover yoxdur) */
+.spa-package-table tbody tr:hover td {
+  background: transparent;
+  justify-content: space-between;
+}
+
+@media (max-width: 600px) {
+
+  /* Wellness Plus başlığı kiçilsin */
+  .main-core .core-pack .core-desc {
+    font-size: 1.8rem;
+  }
+
+  /* Cədvəl mobil üçün */
+  .spa-package-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .spa-package-table {
+    min-width: unset;
+    width: 100%;
+    font-size: 11px;
+  }
+
+  .spa-package-table thead th,
+  .spa-package-table tbody td {
+    padding: 8px 10px;
+  }
+
+  /* Packages modal padding azalt */
+  .wellness-modal .modal-body {
+    padding: 12px;
+  }
+
+  /* $ işarəsi problemi */
+  .spa-package-table small {
+    font-size: 9px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* whatsapp */
+.whatsapp-link {
+  color: #d4b17a;
+  /* sənin hazırki qızılı rəng */
+  transition: 0.3s ease;
+}
+
+.whatsapp-link i {
+  color: #25D366;
+  margin-right: 6px;
+  transition: 0.3s ease;
+}
+
+.whatsapp-link:hover i {
+  text-shadow:
+    0 0 5px #25D366,
+    0 0 10px #25D366,
+    0 0 20px #25D366;
+}
+
+.whatsapp-link i {
+  color: #25D366;
+  animation: glow 1.5s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #25D366;
+  }
+
+  to {
+    text-shadow: 0 0 20px #25D366;
+  }
+}
+
+
+.navbar-toggler {
+  border-color: #C49B6F;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(196,155,111,1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #0f2438;
+    padding: 16px;
+    border-radius: 12px;
+    margin-top: 10px;
+  }
+}
