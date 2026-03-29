@@ -1,0 +1,21 @@
+demali man app va webda ishlana bilacak bir shey qurmaq isdayiram
+
+idea
+
+whats app mesajlarini bir va ya birdan chox insana eyni anda gondarmakdir. bunlar hazir mesajda ola biler sonra yaradilaacaq mesajlarda ola biler.
+
+yani man isdiyiram ki
+
+1)ilk onca login - logout va ya signup olsin.
+
+a)har 3 (signin, signout va sign up) funksiyanalliq tam ishlak olsun
+
+b)her hansi bir email ile ve ya tel nomrasi ile ve ya apple ile registr mumkun olsun.
+
+c)shifrani yadda saxla buttonu olsun (klik olundaq novbati girishda shifra istmasin)
+
+2)butun melumatlar sinxron ishlasin eyer kimsa webda nese elave edib ve ya har hansisa bir emeliyat gorubsa o emaliyyat mobil app,da yenilansin ve ya eksina mobil appda elave olunan ve ya her hansi bir dayishiklik webda da dayishilsin.
+
+1) telefonda oldugu kimi contactlar olsun. nalar daxil olsun contact elave edenda:
+
+ad, soyad, id (contacti yaradacaq shaxs tarafinda tayin olunsun), membership type, experation date.
